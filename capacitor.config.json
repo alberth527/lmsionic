@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "會員紅利兌換系統",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
