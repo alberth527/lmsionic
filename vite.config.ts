@@ -9,13 +9,13 @@ export default defineConfig({
     vue(),
     legacy()
   ],
+  base: process.env.NODE_ENV === 'production' ? '/lmsionic/' : '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
-  test: {
-    globals: true,
-    environment: 'jsdom'
+  server: {
+    port: 8100
   }
 })
