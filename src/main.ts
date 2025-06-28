@@ -25,7 +25,7 @@ import App from './App.vue'
 import { routes } from './router'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.VITE_BASE_URL || '/'),
+  history: createWebHistory(process.env.NODE_ENV === 'production' ? '/lmsionic/' : '/'),
   routes
 })
 

@@ -1,4 +1,13 @@
-export const routes = [
+import { RouteRecordRaw } from 'vue-router'
+
+// 直接靜態導入所有組件，避免懶加載問題
+import Login from '../views/Login.vue'
+import Dashboard from '../views/Dashboard.vue'
+import ProductList from '../views/ProductList.vue'
+import ExchangeConfirm from '../views/ExchangeConfirm.vue'
+import ExchangeHistory from '../views/ExchangeHistory.vue'
+
+export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     redirect: '/login'
@@ -6,30 +15,27 @@ export const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('@/views/Login.vue')
+    component: Login
   },
   {
     path: '/dashboard',
-    name: 'Dashboard',
-    component: () => import('@/views/Dashboard.vue'),
-    meta: { requiresAuth: true }
+    name: 'Dashboard', 
+    component: Dashboard
   },
   {
     path: '/products',
     name: 'ProductList',
-    component: () => import('@/views/ProductList.vue'),
-    meta: { requiresAuth: true }
+    component: ProductList
   },
   {
     path: '/exchange/:id',
     name: 'ExchangeConfirm',
-    component: () => import('@/views/ExchangeConfirm.vue'),
-    meta: { requiresAuth: true }
+    component: ExchangeConfirm,
+    props: true
   },
   {
     path: '/history',
     name: 'ExchangeHistory',
-    component: () => import('@/views/ExchangeHistory.vue'),
-    meta: { requiresAuth: true }
+    component: ExchangeHistory
   }
 ]
